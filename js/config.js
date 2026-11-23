@@ -13,7 +13,7 @@
 (function () {
   'use strict';
 
-  var PRODUCTION_API_BASE_URL = 'https://YOUR-BACKEND.onrender.com/api';
+  var PRODUCTION_API_BASE_URL = 'https://my-api-6nmg.onrender.com/api';
   var LOCAL_API_BASE_URL = 'http://localhost:5000/api';
 
   var host = window.location.hostname;
