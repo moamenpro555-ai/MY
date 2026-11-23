@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="شعار المتجر">
+  <rect width="64" height="64" rx="16" fill="#2250d8"/>
+  <path d="M18 24h28l-2.4 21a4 4 0 0 1-4 3.5H24.4a4 4 0 0 1-4-3.5z" fill="#fff"/>
+  <path d="M25 24v-3a7 7 0 0 1 14 0v3" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M26 33.5l4.5 4.5 8-8" fill="none" stroke="#ff7a1a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

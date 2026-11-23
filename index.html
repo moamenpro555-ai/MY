@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الرئيسية | سوق بلس</title>
+  <meta name="description" content="تسوق أحدث المنتجات بأفضل الأسعار مع الدفع عند الاستلام وشحن سريع.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body data-root="">
+  <div id="site-header"></div>
+  <main id="main" class="container">
+
+    <section class="hero home-hero" aria-labelledby="hero-title">
+      <div class="home-hero-content">
+        <span class="home-hero-tag badge badge-discount">عروض لفترة محدودة</span>
+        <h1 id="hero-title">خصومات تصل إلى 50% على منتجات مختارة</h1>
+        <p>اكتشف آلاف المنتجات بأسعار مميزة، والدفع عند الاستلام، وشحن مجاني للطلبات الكبيرة.</p>
+        <div class="home-hero-actions">
+          <a class="btn btn-accent btn-lg" href="pages/products.html?onSale=true">تسوّق العروض</a>
+          <a class="btn btn-lg home-hero-secondary" href="pages/products.html?sort=newest">أحدث المنتجات</a>
+        </div>
+      </div>
+      <div class="home-hero-art" aria-hidden="true">
+        <svg viewBox="0 0 240 240" width="240" height="240" focusable="false">
+          <circle class="art-ring" cx="120" cy="120" r="100"/>
+          <circle class="art-disc" cx="120" cy="120" r="78"/>
+          <path class="art-bag" d="M78 98h84l8 82a10 10 0 0 1-10 11H80a10 10 0 0 1-10-11z"/>
+          <path class="art-handle" d="M98 98v-8a22 22 0 0 1 44 0v8"/>
+          <path class="art-star" d="m120 120 5.6 11.4 12.6 1.8-9.1 8.9 2.1 12.5-11.2-5.9-11.2 5.9 2.1-12.5-9.1-8.9 12.6-1.8z"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section home-features" aria-label="مميزات المتجر">
+      <div class="feature-strip">
+        <div class="feature-item"><span id="feat-truck"></span><div><strong>شحن سريع</strong><div class="text-muted text-sm">توصيل لجميع المحافظات</div></div></div>
+        <div class="feature-item"><span id="feat-shield"></span><div><strong>دفع آمن</strong><div class="text-muted text-sm">الدفع عند الاستلام</div></div></div>
+        <div class="feature-item"><span id="feat-refresh"></span><div><strong>استرجاع سهل</strong><div class="text-muted text-sm">سياسة إرجاع واضحة</div></div></div>
+        <div class="feature-item"><span id="feat-tag"></span><div><strong>أسعار منافسة</strong><div class="text-muted text-sm">عروض وخصومات مستمرة</div></div></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="cats-title">
+      <div class="section-head"><h2 class="section-title" id="cats-title">تسوّق حسب القسم</h2></div>
+      <div id="categories-grid" class="home-cats" aria-live="polite"></div>
+    </section>
+
+    <section class="section" aria-labelledby="best-title">
+      <div class="section-head">
+        <h2 class="section-title" id="best-title">الأكثر مبيعاً</h2>
+        <a class="btn btn-ghost btn-sm" href="pages/products.html?sort=best_selling">عرض الكل</a>
+      </div>
+      <div id="best-grid" class="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" aria-labelledby="latest-title">
+      <div class="section-head">
+        <h2 class="section-title" id="latest-title">أحدث المنتجات</h2>
+        <a class="btn btn-ghost btn-sm" href="pages/products.html?sort=newest">عرض الكل</a>
+      </div>
+      <div id="latest-grid" class="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-title">
+      <div class="section-head">
+        <h2 class="section-title" id="featured-title">منتجات مميزة</h2>
+        <a class="btn btn-ghost btn-sm" href="pages/products.html?featured=true">عرض الكل</a>
+      </div>
+      <div id="featured-grid" class="product-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section" aria-labelledby="deals-title">
+      <div class="section-head">
+        <h2 class="section-title" id="deals-title">العروض والخصومات</h2>
+        <a class="btn btn-ghost btn-sm" href="pages/products.html?onSale=true">عرض الكل</a>
+      </div>
+      <div id="deals-grid" class="product-grid" aria-live="polite"></div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/pages/home.js"></script>
+</body>
+</html>

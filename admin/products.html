@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>المنتجات | لوحة التحكم | سوق بلس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="../css/admin/common.css">
+  <link rel="stylesheet" href="../css/admin/products.css">
+</head>
+<body data-root="../">
+  <div id="site-header"></div>
+  <main id="main" class="container">
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <p class="admin-sidebar-title">لوحة التحكم</p>
+        <nav class="admin-nav" aria-label="لوحة التحكم">
+          <a href="index.html" data-nav="dashboard">لوحة المعلومات</a>
+          <a href="products.html" data-nav="products" class="is-active" aria-current="page">المنتجات</a>
+          <a href="orders.html" data-nav="orders">الطلبات</a>
+          <a href="customers.html" data-nav="customers">العملاء</a>
+          <a href="categories.html" data-nav="categories">الأقسام</a>
+          <a href="coupons.html" data-nav="coupons">الكوبونات</a>
+          <a href="reports.html" data-nav="reports">التقارير</a>
+        </nav>
+      </aside>
+      <section class="admin-content">
+
+        <div class="admin-page-head"><h1>المنتجات</h1>
+          <button type="button" class="btn btn-primary" id="add-btn">إضافة منتج</button></div>
+        <div class="toolbar" role="search">
+          <label class="sr-only" for="search-input">بحث</label>
+          <input class="form-control toolbar-search" id="search-input" type="search" placeholder="ابحث باسم المنتج…" autocomplete="off">
+          <label class="sr-only" for="status-filter">الحالة</label>
+          <select class="form-select" id="status-filter"><option value="">كل الحالات</option><option value="ACTIVE">نشط</option><option value="DRAFT">مسودة</option><option value="ARCHIVED">مؤرشف</option></select>
+          <label class="sr-only" for="category-filter">القسم</label>
+          <select class="form-select" id="category-filter"><option value="">كل الأقسام</option></select>
+        </div>
+        <div class="table-wrap"><table class="data-table"><caption class="sr-only">قائمة المنتجات</caption>
+          <thead><tr><th scope="col">المنتج</th><th scope="col">القسم</th><th scope="col" class="col-num">السعر</th><th scope="col" class="col-num">المخزون</th><th scope="col">الحالة</th><th scope="col">مميز</th><th scope="col" class="col-actions">إجراءات</th></tr></thead>
+          <tbody id="table-body"></tbody></table></div>
+        <div id="pager" class="pagination-wrap"></div>
+      </section>
+    </div>
+  </main>
+  <div class="modal-backdrop" id="product-modal" hidden>
+    <div class="modal modal-lg" role="dialog" aria-modal="true" aria-labelledby="product-modal-title">
+      <div class="modal-header"><h2 class="modal-title" id="product-modal-title">منتج</h2>
+        <button type="button" class="icon-btn modal-close" data-close-modal aria-label="إغلاق"></button></div>
+      <form id="product-form" novalidate>
+      <div class="modal-body"><div class="form-grid">
+        <div class="form-group full"><label class="form-label" for="f-name">اسم المنتج <span class="required-mark">*</span></label><input class="form-control" id="f-name" name="name" type="text" required maxlength="200" data-autofocus><div class="field-error"></div></div>
+        <div class="form-group full"><label class="form-label" for="f-description">الوصف <span class="required-mark">*</span></label><textarea class="form-control" id="f-description" name="description" rows="4" required></textarea><div class="field-error"></div></div>
+        <div class="form-group"><label class="form-label" for="f-categoryId">القسم <span class="required-mark">*</span></label><select class="form-select" id="f-categoryId" name="categoryId" required><option value="">اختر القسم</option></select><div class="field-error"></div></div>
+        <div class="form-group"><label class="form-label" for="f-status">الحالة</label><select class="form-select" id="f-status" name="status"><option value="ACTIVE">نشط</option><option value="DRAFT">مسودة</option><option value="ARCHIVED">مؤرشف</option></select><div class="field-error"></div></div>
+        <div class="form-group"><label class="form-label" for="f-price">السعر (ج.م) <span class="required-mark">*</span></label><input class="form-control" id="f-price" name="price" type="number" min="0" step="0.01" required inputmode="decimal"><div class="field-error"></div></div>
+        <div class="form-group"><label class="form-label" for="f-salePrice">سعر الخصم (اختياري)</label><input class="form-control" id="f-salePrice" name="salePrice" type="number" min="0" step="0.01" inputmode="decimal"><div class="field-error"></div><div class="form-hint">يجب أن يكون أقل من السعر.</div></div>
+        <div class="form-group"><label class="form-label" for="f-stock">المخزون <span class="required-mark">*</span></label><input class="form-control" id="f-stock" name="stock" type="number" min="0" step="1" required inputmode="numeric"><div class="field-error"></div></div>
+        <div class="form-group"><span class="form-label">&nbsp;</span><label class="form-check"><input type="checkbox" id="f-isFeatured" name="isFeatured"><span class="form-check-label">منتج مميز</span></label></div>
+        <div class="form-group"><label class="form-label" for="f-sizes">المقاسات</label><input class="form-control" id="f-sizes" name="sizes" type="text" placeholder="S, M, L, XL"><div class="field-error"></div><div class="form-hint">افصل بفاصلة. اتركه فارغاً إن لم يوجد.</div></div>
+        <div class="form-group"><label class="form-label" for="f-colors">الألوان</label><input class="form-control" id="f-colors" name="colors" type="text" placeholder="أحمر, أزرق"><div class="field-error"></div><div class="form-hint">افصل بفاصلة. اتركه فارغاً إن لم يوجد.</div></div>
+        <div class="form-group full"><span class="form-label">الصور</span>
+          <div class="input-group"><input class="form-control ltr" id="image-url-input" type="url" placeholder="https://…" aria-label="رابط الصورة" autocomplete="off">
+            <button type="button" class="btn btn-outline" id="add-image-url">إضافة رابط</button></div>
+          <div class="product-upload-row"><label class="btn btn-outline btn-sm" for="image-file">رفع صورة من الجهاز</label>
+            <input class="sr-only" type="file" id="image-file" accept="image/jpeg,image/png,image/webp">
+            <span class="form-hint" id="upload-status" aria-live="polite">JPEG / PNG / WebP حتى 5MB</span></div>
+          <div class="field-error" data-images-error></div>
+          <div id="images-list" class="image-preview-grid images-manager"></div>
+        </div>
+      </div></div>
+      <div class="modal-footer"><button class="btn btn-primary" type="submit" id="save-btn">حفظ</button>
+          <button class="btn btn-outline" type="button" data-close-modal>إلغاء</button></div>
+      </form>
+    </div>
+  </div>
+  <div id="site-footer"></div>
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/admin/common.js"></script>
+  <script src="../js/admin/products.js"></script>
+</body>
+</html>

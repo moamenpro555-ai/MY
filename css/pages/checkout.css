@@ -1,0 +1,28 @@
+/* Checkout page */
+.co-main { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+.co-section { margin: 0; }
+.co-title { font-size: 1.05rem; display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-3); }
+.co-title .icon { color: var(--primary); }
+.co-title-row { display: flex; justify-content: space-between; align-items: center; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-3); }
+.co-title-row .co-title { margin: 0; }
+.co-options { display: grid; gap: var(--space-3); }
+.co-card-content { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.co-card-title { font-weight: 700; display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap; }
+.co-card-line { font-size: .92rem; }
+.radio-card.is-disabled { opacity: .55; cursor: not-allowed; background: var(--surface-alt); }
+.radio-card.is-disabled:hover { border-color: var(--border); }
+.address-form { margin-top: var(--space-4); padding: var(--space-4); border: 1px dashed var(--border-strong); border-radius: var(--radius); background: var(--surface-alt); }
+.address-form[hidden] { display: none; }
+.address-form-title { font-size: 1rem; margin-bottom: var(--space-3); }
+.cart-summary .summary-title { font-size: 1.1rem; margin-bottom: var(--space-3); }
+.co-lines { list-style: none; margin: 0 0 var(--space-3); padding: 0; max-height: 280px; overflow-y: auto; display: grid; gap: var(--space-3); }
+.co-line { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; }
+.co-line.is-unavailable { opacity: .55; }
+.co-line-img { width: 48px; height: 48px; border-radius: var(--radius-sm); object-fit: cover; background: var(--surface-alt); display: block; }
+.co-line-info { display: flex; flex-direction: column; min-width: 0; }
+.co-line-name { font-weight: 600; font-size: .9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.co-line-total { font-weight: 700; font-size: .9rem; white-space: nowrap; }
+.summary-rows { margin: var(--space-3) 0; }
+@media (max-width: 640px) {
+  .address-form { padding: var(--space-3); }
+}

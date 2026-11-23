@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تسجيل الدخول | سوق بلس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+</head>
+<body data-root="../">
+  <div id="site-header"></div>
+  <main id="main" class="container auth-page">
+    <div class="auth-card card">
+      <div class="auth-head">
+        <div class="auth-head-icon" data-icon="user"></div>
+        <h1 class="auth-title">تسجيل الدخول</h1>
+        <p class="auth-subtitle">مرحباً بعودتك، سجّل دخولك لمتابعة التسوق</p>
+      </div>
+      <div class="card-body">
+        <div id="form-alert" class="alert alert-danger" role="alert" aria-live="assertive" hidden></div>
+        <form id="login-form" class="auth-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="email">البريد الإلكتروني <span class="required-mark">*</span></label>
+            <div class="input-with-icon">
+              <span data-icon="mail"></span>
+              <input class="form-control ltr" type="email" id="email" name="email" autocomplete="email" inputmode="email" dir="ltr" required data-autofocus>
+            </div>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+        <div class="form-group">
+          <div class="auth-form-head"><label class="form-label" for="password">كلمة المرور <span class="required-mark">*</span></label><a class="auth-link" href="forgot-password.html">نسيت كلمة المرور؟</a></div>
+          <div class="input-with-icon">
+            <span data-icon="lock"></span>
+            <input class="form-control has-toggle ltr" type="password" id="password" name="password" autocomplete="current-password" required dir="ltr">
+            <button type="button" class="password-toggle" data-toggle-password="password" aria-label="إظهار كلمة المرور" aria-pressed="false">إظهار</button>
+          </div>
+          <div class="field-error" aria-live="polite"></div>
+        </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">تسجيل الدخول</button>
+        <div class="google-block" id="google-btn-block">
+          <div class="divider-text google-or">أو</div>
+          <a class="btn btn-google btn-block" id="google-btn" href="#"><span data-icon="google"></span><span>المتابعة باستخدام Google</span></a>
+          <p class="google-note" id="google-note" hidden>تسجيل الدخول عبر Google غير متاح حالياً.</p>
+        </div>
+        </form>
+        <p class="auth-switch">ليس لديك حساب؟ <a id="register-link" href="register.html">إنشاء حساب جديد</a></p>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/pages/login.js"></script>
+</body>
+</html>

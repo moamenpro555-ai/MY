@@ -1,0 +1,7 @@
+.order-admin-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.order-admin-grid h3 { font-size: .95rem; color: var(--text-muted, #6b7280); margin-bottom: 8px; }
+.order-admin-grid p { margin: 0 0 4px; }
+.order-admin-totals { max-width: 360px; margin-inline-start: auto; margin-top: 16px; }
+.order-status-form { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-inline-end: auto; }
+.order-status-form .form-select { width: auto; min-width: 160px; }
+@media (max-width: 768px) { .order-admin-grid { grid-template-columns: 1fr; } }

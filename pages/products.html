@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المنتجات | سوق بلس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/products.css">
+</head>
+<body data-root="../">
+  <div id="site-header"></div>
+  <main id="main" class="container products-page">
+    <ol class="breadcrumbs">
+      <li><a href="../index.html">الرئيسية</a></li>
+      <li aria-current="page">المنتجات</li>
+    </ol>
+
+    <div class="products-head">
+      <div>
+        <h1 class="page-title" id="page-heading">كل المنتجات</h1>
+        <p class="text-muted text-sm" id="result-count" role="status" aria-live="polite"></p>
+      </div>
+      <div class="products-tools">
+        <button type="button" class="btn btn-outline products-filter-toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
+          <span id="filters-toggle-icon"></span><span>تصفية النتائج</span>
+        </button>
+        <div class="products-sort">
+          <label class="form-label" for="sort-select">الترتيب</label>
+          <select class="form-select" id="sort-select">
+            <option value="newest">الأحدث</option>
+            <option value="price_asc">السعر: من الأقل للأعلى</option>
+            <option value="price_desc">السعر: من الأعلى للأقل</option>
+            <option value="best_selling">الأكثر مبيعاً</option>
+            <option value="rating">الأعلى تقييماً</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-layout">
+      <aside class="filters card sticky-top" id="filters-panel" aria-label="تصفية المنتجات">
+        <div class="card-body">
+          <div class="filters-title-row">
+            <h2 class="filters-title">التصفية</h2>
+            <button type="button" class="btn btn-ghost btn-sm" id="reset-filters">مسح الكل</button>
+          </div>
+
+          <section class="filter-block" aria-labelledby="f-cat-title">
+            <h3 class="filter-block-title" id="f-cat-title">القسم</h3>
+            <div id="category-list" class="category-list" role="radiogroup" aria-labelledby="f-cat-title">
+              <div class="skeleton skeleton-line"></div>
+              <div class="skeleton skeleton-line medium"></div>
+              <div class="skeleton skeleton-line short"></div>
+            </div>
+          </section>
+
+          <section class="filter-block" aria-labelledby="f-price-title">
+            <h3 class="filter-block-title" id="f-price-title">السعر (ج.م)</h3>
+            <form id="price-form" class="price-form" novalidate>
+              <div class="price-inputs">
+                <div>
+                  <label class="sr-only" for="min-price">أقل سعر</label>
+                  <input class="form-control" type="number" id="min-price" name="minPrice" min="0" step="1" inputmode="numeric" placeholder="من">
+                </div>
+                <span class="price-sep" aria-hidden="true">-</span>
+                <div>
+                  <label class="sr-only" for="max-price">أعلى سعر</label>
+                  <input class="form-control" type="number" id="max-price" name="maxPrice" min="0" step="1" inputmode="numeric" placeholder="إلى">
+                </div>
+              </div>
+              <div class="field-error" id="price-error" aria-live="polite"></div>
+              <button type="submit" class="btn btn-primary btn-sm btn-block">تطبيق</button>
+            </form>
+          </section>
+
+          <section class="filter-block" aria-labelledby="f-rate-title">
+            <h3 class="filter-block-title" id="f-rate-title">التقييم</h3>
+            <div class="chip-row" id="rating-chips">
+              <button type="button" class="chip" data-rating="4" aria-pressed="false">4+ نجوم</button>
+              <button type="button" class="chip" data-rating="3" aria-pressed="false">3+ نجوم</button>
+              <button type="button" class="chip" data-rating="2" aria-pressed="false">2+ نجوم</button>
+            </div>
+          </section>
+
+          <section class="filter-block">
+            <label class="form-check">
+              <input type="checkbox" id="on-sale">
+              <span class="form-check-label">العروض والتخفيضات فقط</span>
+            </label>
+          </section>
+        </div>
+      </aside>
+
+      <section class="products-results" aria-label="نتائج البحث">
+        <div class="active-filters" id="active-filters" hidden></div>
+        <div id="products-grid" class="product-grid" aria-busy="true"></div>
+        <div id="products-pager" class="pagination-wrap"></div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/pages/products.js"></script>
+</body>
+</html>

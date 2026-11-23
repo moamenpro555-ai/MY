@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>إنشاء حساب | سوق بلس</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/pages/auth.css">
+</head>
+<body data-root="../">
+  <div id="site-header"></div>
+  <main id="main" class="container auth-page">
+    <div class="auth-card auth-card-wide card">
+      <div class="auth-head">
+        <div class="auth-head-icon" data-icon="user"></div>
+        <h1 class="auth-title">إنشاء حساب جديد</h1>
+        <p class="auth-subtitle">سجّل بياناتك لتبدأ التسوق وإتمام طلباتك بسهولة</p>
+      </div>
+      <div class="card-body">
+        <div id="form-alert" class="alert alert-danger" role="alert" aria-live="assertive" hidden></div>
+        <form id="register-form" class="auth-form" novalidate>
+          <h2 class="form-section-title">بيانات الحساب</h2>
+          <div class="form-group">
+            <label class="form-label" for="fullName">الاسم الكامل <span class="required-mark">*</span></label>
+            <input class="form-control" type="text" id="fullName" name="fullName" autocomplete="name" required data-autofocus>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+          <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="email">البريد الإلكتروني <span class="required-mark">*</span></label>
+            <input class="form-control ltr" type="email" id="email" name="email" autocomplete="email" required inputmode="email" dir="ltr">
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="phone">رقم الهاتف <span class="required-mark">*</span></label>
+            <input class="form-control ltr" type="tel" id="phone" name="phone" autocomplete="tel" required inputmode="tel" dir="ltr" placeholder="01012345678">
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+          </div>
+          <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="password">كلمة المرور <span class="required-mark">*</span></label>
+          <div class="input-with-icon">
+            <span data-icon="lock"></span>
+            <input class="form-control has-toggle ltr" type="password" id="password" name="password" autocomplete="new-password" required dir="ltr">
+            <button type="button" class="password-toggle" data-toggle-password="password" aria-label="إظهار كلمة المرور" aria-pressed="false">إظهار</button>
+          </div>
+          <div class="field-error" aria-live="polite"></div>
+          <div class="strength" id="strength" data-level="0" aria-live="polite">
+            <div class="strength-bar"><span class="strength-fill"></span></div>
+            <div class="strength-text" id="strength-text">٨ أحرف على الأقل، وتحتوي على حرف ورقم.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="confirmPassword">تأكيد كلمة المرور <span class="required-mark">*</span></label>
+          <div class="input-with-icon">
+            <span data-icon="lock"></span>
+            <input class="form-control has-toggle ltr" type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" required dir="ltr">
+            <button type="button" class="password-toggle" data-toggle-password="confirmPassword" aria-label="إظهار كلمة المرور" aria-pressed="false">إظهار</button>
+          </div>
+          <div class="field-error" aria-live="polite"></div>
+        </div>
+          </div>
+          <h2 class="form-section-title">عنوان الشحن</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="governorate">المحافظة <span class="required-mark">*</span></label>
+              <select class="form-select" id="governorate" name="governorate" autocomplete="address-level1" required>
+                <option value="">اختر المحافظة</option>
+              </select>
+              <div class="field-error" aria-live="polite"></div>
+            </div>
+          <div class="form-group">
+            <label class="form-label" for="city">المدينة / المنطقة <span class="required-mark">*</span></label>
+            <input class="form-control" type="text" id="city" name="city" autocomplete="address-level2" required>
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="addressLine">العنوان بالتفصيل <span class="required-mark">*</span></label>
+            <input class="form-control" type="text" id="addressLine" name="addressLine" autocomplete="street-address" required placeholder="الشارع، رقم المبنى، الدور، الشقة">
+            <div class="field-error" aria-live="polite"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">إنشاء الحساب</button>
+        <div class="google-block" id="google-btn-block">
+          <div class="divider-text google-or">أو</div>
+          <a class="btn btn-google btn-block" id="google-btn" href="#"><span data-icon="google"></span><span>المتابعة باستخدام Google</span></a>
+          <p class="google-note" id="google-note" hidden>تسجيل الدخول عبر Google غير متاح حالياً.</p>
+        </div>
+        </form>
+        <p class="auth-switch">لديك حساب بالفعل؟ <a id="login-link" href="login.html">تسجيل الدخول</a></p>
+      </div>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/ui.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/pages/register.js"></script>
+</body>
+</html>

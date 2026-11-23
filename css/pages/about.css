@@ -1,0 +1,12 @@
+.about-hero { text-align: center; padding-block: 40px; margin-bottom: 24px; background: linear-gradient(135deg, var(--primary, #4f46e5) 0%, var(--primary-dark, #3730a3) 100%); color: #fff; }
+.about-hero .page-title { color: #fff; margin-bottom: 8px; }
+.about-lead { max-width: 640px; margin: 0 auto; font-size: 1.1rem; line-height: 1.9; opacity: .95; }
+.about-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+.about-values h2 { font-size: 1.1rem; margin: 12px 0 6px; }
+.about-values p { color: var(--text-muted, #6b7280); margin: 0; line-height: 1.8; }
+.about-icon { display: inline-flex; width: 48px; height: 48px; border-radius: 12px; align-items: center; justify-content: center; background: var(--primary-50, #eef2ff); color: var(--primary, #4f46e5); }
+.about-icon svg { width: 24px; height: 24px; }
+.about-section { margin-bottom: 24px; scroll-margin-top: 90px; }
+.about-section .section-title { margin-bottom: 12px; }
+.about-list { padding-inline-start: 20px; line-height: 2; margin: 0; }
+@media (max-width: 768px) { .about-values { grid-template-columns: 1fr; } }

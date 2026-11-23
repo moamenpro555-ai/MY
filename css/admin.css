@@ -1,0 +1,82 @@
+/* ==========================================================================
+   admin.css — admin-only layout/components. Loaded ONLY by admin/*.html,
+   after main.css and responsive.css.
+   ========================================================================== */
+
+.admin-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: var(--space-5); align-items: start; }
+.admin-sidebar { position: sticky; top: calc(var(--header-h) + var(--space-4)); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-3); box-shadow: var(--shadow-sm); }
+.admin-sidebar-title { font-size: .8rem; color: var(--text-muted); padding: var(--space-2) var(--space-3); margin: 0; }
+.admin-nav { display: flex; flex-direction: column; gap: 2px; }
+.admin-nav a {
+  display: flex; align-items: center; gap: var(--space-3); padding: .65rem var(--space-3); border-radius: var(--radius);
+  color: var(--text); font-weight: 600;
+}
+.admin-nav a .icon { font-size: 1.2rem; color: var(--text-muted); }
+.admin-nav a:hover { background: var(--surface-alt); text-decoration: none; color: var(--primary); }
+.admin-nav a.is-active, .admin-nav a[aria-current="page"] { background: var(--primary); color: #fff; }
+.admin-nav a.is-active .icon, .admin-nav a[aria-current="page"] .icon { color: #fff; }
+.admin-content { min-width: 0; }
+.admin-page-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); }
+.admin-page-head h1 { margin: 0; font-size: 1.5rem; }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-5); }
+.stat-card { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-4) var(--space-5); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.stat-card-icon { width: 52px; height: 52px; flex: none; display: flex; align-items: center; justify-content: center; border-radius: var(--radius); background: var(--primary-light); color: var(--primary); font-size: 1.6rem; }
+.stat-card.is-success .stat-card-icon { background: var(--success-bg); color: var(--success); }
+.stat-card.is-warning .stat-card-icon { background: var(--warning-bg); color: var(--warning); }
+.stat-card.is-danger .stat-card-icon { background: var(--danger-bg); color: var(--danger); }
+.stat-card-label { display: block; color: var(--text-muted); font-size: .88rem; }
+.stat-card-value { display: block; font-size: 1.5rem; font-weight: 800; line-height: 1.3; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); padding: var(--space-3) var(--space-4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+.toolbar .form-control, .toolbar .form-select { width: auto; min-width: 150px; }
+.toolbar .toolbar-search { flex: 1 1 220px; }
+.toolbar .toolbar-spacer { margin-inline-start: auto; }
+
+.data-table { width: 100%; min-width: 640px; }
+.data-table th, .data-table td { padding: .75rem 1rem; text-align: right; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.data-table thead th { background: var(--surface-alt); font-size: .83rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; position: sticky; top: 0; }
+.data-table tbody tr:hover { background: #fafbfe; }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table .col-actions { white-space: nowrap; text-align: left; }
+.data-table .col-num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-4); }
+.form-grid .form-group.full, .form-grid .full { grid-column: 1 / -1; }
+
+.chart-bars { display: flex; flex-direction: column; gap: var(--space-3); }
+.chart-bars-row { display: grid; grid-template-columns: 110px minmax(0, 1fr) auto; align-items: center; gap: var(--space-3); font-size: .88rem; }
+.chart-bars-label { color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.chart-bars-track { height: 16px; background: var(--surface-alt); border-radius: var(--radius-full); overflow: hidden; }
+.chart-bars-fill { display: block; height: 100%; width: var(--w, 0%); background: linear-gradient(90deg, var(--primary), #5b84f0); border-radius: var(--radius-full); transition: width .6s var(--ease); }
+.chart-bars-value { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.chart-bars-row.is-accent .chart-bars-fill { background: linear-gradient(90deg, var(--accent-dark), var(--accent)); }
+
+.badge-low-stock { background: var(--warning-bg); color: var(--warning); }
+.badge-low-stock::before { content: ''; width: .45rem; height: .45rem; border-radius: 50%; background: currentColor; }
+.image-preview-grid { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.image-preview { position: relative; width: 96px; height: 96px; border-radius: var(--radius); overflow: hidden; border: 2px solid var(--border); }
+.image-preview img { width: 100%; height: 100%; object-fit: cover; }
+.image-preview.is-primary { border-color: var(--primary); }
+.image-preview .btn { position: absolute; top: 4px; inset-inline-end: 4px; }
+
+@media (max-width: 992px) {
+  .admin-layout { grid-template-columns: minmax(0, 1fr); }
+  .admin-sidebar { position: static; padding: var(--space-2); }
+  .admin-sidebar-title { display: none; }
+  .admin-nav { flex-direction: row; overflow-x: auto; scrollbar-width: none; }
+  .admin-nav::-webkit-scrollbar { display: none; }
+  .admin-nav a { white-space: nowrap; padding: .5rem .8rem; }
+}
+@media (max-width: 768px) {
+  .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-card { padding: var(--space-3); gap: var(--space-3); }
+  .stat-card-icon { width: 42px; height: 42px; font-size: 1.3rem; }
+  .stat-card-value { font-size: 1.2rem; }
+  .chart-bars-row { grid-template-columns: 80px minmax(0, 1fr) auto; }
+  .toolbar .form-control, .toolbar .form-select { width: 100%; }
+}
+@media (max-width: 576px) {
+  .stat-grid { grid-template-columns: minmax(0, 1fr); }
+}
